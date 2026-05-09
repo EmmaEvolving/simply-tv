@@ -16,7 +16,7 @@ The architecture is intentionally conservative. Proven interfaces are preferred 
 
 ```
                         ┌───────────────────────────────────────────────────────┐
-                        │                  SIMPLY TV                            │
+                        │                      SIMPLY TV                        │
                         │                                                       │
   Antenna ─────────────►│  ATSC Tuner ────────────────────────────────────────┐ │
                         │  (RF → Transport Stream)                            │ │
