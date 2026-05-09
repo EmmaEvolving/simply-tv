@@ -15,36 +15,36 @@ The architecture is intentionally conservative. Proven interfaces are preferred 
 ## System Block Diagram
 
 ```
-                        ┌─────────────────────────────────────────────────┐
-                        │                  SIMPLY TV                       │
-                        │                                                  │
-  Antenna ─────────────►│  ATSC Tuner ──────────────────────────────────┐ │
-                        │  (RF → Transport Stream)                       │ │
-  HDMI 1 (eARC) ───────►│                                                │ │
-  HDMI 2 ───────────────►│  HDMI Receivers                               │ │
-  HDMI 3 ───────────────►│  (TMDS → pixel data + audio)                  │ │
-  HDMI 4 ───────────────►│                                                │ │
-                        │                                                 ▼ │
-  Component ────────────►│  Analog Video Decoder ──────► MAIN PROCESSOR ───►│ OLED Panel
-  (Y/Pb/Pr)             │  (ADV7183B)               │   (Scaler SoC      │ │ (primary)
-                        │                            │    or CM4)         │ │
-  Composite ────────────►│  Analog Video Decoder ──┘   │                  │ │ LED/LCD Panel
-  (CVBS)                │  (shared ADV7183B)            │                  │ │ (fallback)
-                        │                               │                  │ │
-  RCA Audio L/R ────────►│  Audio ADC ────────────────► │                  │ │
-                        │  (PCM1802)                    │                  │ │
-                        │                               ▼                  │ │
-                        │                         Audio Engine ────────────┘ │
-                        │                               │                    │
-                        │                               ├──► Internal Speakers│
-                        │                               ├──► TOSLINK Out      │
-                        │                               ├──► eARC (HDMI 1)   │
-                        │                               └──► Headphone Jack   │
-                        │                                                     │
-                        │  IR Receiver ──────────────► Main Processor         │
-                        │  USB (2×) ──────────────────► Firmware Update Only  │
-                        │  Power Supply ──────────────► All subsystems        │
-                        └─────────────────────────────────────────────────────┘
+                        ┌───────────────────────────────────────────────────────┐
+                        │                  SIMPLY TV                            │
+                        │                                                       │
+  Antenna ─────────────►│  ATSC Tuner ────────────────────────────────────────┐ │
+                        │  (RF → Transport Stream)                            │ │
+  HDMI 1 (eARC) ───────►│                                                     │ │
+  HDMI 2 ──────────────►│  HDMI Receivers                                     │ │
+  HDMI 3 ──────────────►│  (TMDS → pixel data + audio)                        │ │
+  HDMI 4 ──────────────►│                                                     │ │
+                        │                                                     ▼ │
+  Component ───────────►│  Analog Video Decoder ────────► MAIN PROCESSOR  ─────►│ OLED Panel
+  (Y/Pb/Pr)             │  (ADV7183B)               |   │   (Scaler SoC       │ │ (primary)
+                        │                           |   │    or CM4)          │ │
+  Composite ───────────►│  Analog Video Decoder ────┘   │                     │ │ LED/LCD Panel
+  (CVBS)                │  (shared ADV7183B)            │                     │ │ (fallback)
+                        │                               │                     │ │
+  RCA Audio L/R ───────►│  Audio ADC ─────────────────► │                     │ │
+                        │  (PCM1802)                    │                     │ │
+                        │                               ▼                     │ │
+                        │                           Audio Engine ─────────────┘ │
+                        │                                 │                     │
+                        │                                 ├──► Internal Speakers│
+                        │                                 ├──► TOSLINK Out      │
+                        │                                 ├──► eARC (HDMI 1)    │
+                        │                                 └──► Headphone Jack   │
+                        │                                                       │
+                        │  IR Receiver ──────────────► Main Processor           │
+                        │  USB (2×) ──────────────────► Firmware Update Only    │
+                        │  Power Supply ──────────────► All subsystems          │
+                        └───────────────────────────────────────────────────────┘
 ```
 
 ---
