@@ -1,16 +1,16 @@
-# Just TV
+# Simply TV
 
 **An open system design for a television that does one thing: display a picture.**
 
-No apps. No ads. No tracking. No firmware that updates itself overnight. No terms of service. No account required. Just the picture.
+No apps. No ads. No tracking. No firmware that updates itself overnight. No terms of service. No account required. Simply the picture.
 
 ---
 
 ## What This Is
 
-Just TV is an open source system design document for a privacy-first, dumb television. It is not a product you can buy — it is a complete technical specification that anyone can read, fork, contribute to, or use as the basis for actually building one.
+Simply TV is an open source system design document for a privacy-first, dumb television. It is not a product you can buy — it is a complete technical specification that anyone can read, fork, contribute to, or use as the basis for actually building one.
 
-Every modern "smart" TV ships with an operating system that tracks what you watch, serves ads, phones home to manufacturer servers, and updates itself without your consent. Just TV is the answer to the question: *what would a television look like if it was designed for the person watching it, not the advertiser paying for their attention?*
+Every modern "smart" TV ships with an operating system that tracks what you watch, serves ads, phones home to manufacturer servers, and updates itself without your consent. Simply TV is the answer to the question: *what would a television look like if it was designed for the person watching it, not the advertiser paying for their attention?*
 
 The answer turns out to be simple. A display. Some inputs. A speaker. A remote. That's it.
 
@@ -22,16 +22,16 @@ In 2026 every major television manufacturer ships a product that watches you. Vi
 
 The technology required to build a television that simply displays a picture has not changed. The industry chose to add surveillance because surveillance is profitable, not because it improves the viewing experience.
 
-Just TV is the specification for the television that should exist. If enough people build it, contribute to it, and share it, maybe it will.
+Simply TV is the specification for the television that should exist. If enough people build it, contribute to it, and share it, maybe it will.
 
 ---
 
 ## What's in This Repository
 
-This repository contains the complete system design for Just TV across four implementation paths, ranging from a production-ready proprietary scaler approach to a fully open source Raspberry Pi CM4 build that any engineer can reproduce.
+This repository contains the complete system design for Simply TV across four implementation paths, ranging from a production-ready proprietary scaler approach to a fully open source Raspberry Pi CM4 build that any engineer can reproduce.
 
 ```
-just-tv/
+simply-tv/
 ├── README.md                   ← You are here
 ├── LICENSE                     ← MIT License
 │
@@ -89,10 +89,10 @@ just-tv/
 
 ## The Four Implementation Paths
 
-Just TV is designed across four levels of openness and complexity. Pick the one that matches your goals.
+Simply TV is designed across four levels of openness and complexity. Pick the one that matches your goals.
 
 ### Option A — Realtek RTD2795 *(Production Path)*
-The chip inside most commercial monitors and displays today. Purpose-built scaler SoC with native HDMI 2.0, Vx1 panel output, and a complete TV signal chain. SDK available through ODM partnership. This is the path a real manufacturer would take to build Just TV as a product.
+The chip inside most commercial monitors and displays today. Purpose-built scaler SoC with native HDMI 2.0, Vx1 panel output, and a complete TV signal chain. SDK available through ODM partnership. This is the path a real manufacturer would take to build Simply TV as a product.
 
 **Best for:** Anyone planning to actually manufacture and sell units.
 
@@ -117,7 +117,7 @@ A full custom design using an STM32H7 microcontroller and Lattice ECP5 FPGA impl
 
 **Every feature is defined by what it lacks.**
 
-Just TV has no:
+Simply TV has no:
 - WiFi or Ethernet
 - Bluetooth (except optional for a future keyboard accessory)
 - App store or streaming applications
@@ -128,7 +128,7 @@ Just TV has no:
 - Remote management or kill switch
 - Voice assistant microphone
 
-Just TV has:
+Simply TV has:
 - HDMI 2.1 (4 ports, one with eARC)
 - ATSC 3.0 / 1.0 tuner (OTA broadcast — free, local, private)
 - Component video (Y/Pb/Pr) with HD support up to 1080i
@@ -143,19 +143,19 @@ Just TV has:
 
 ## The ATSC 3.0 Position
 
-ATSC 3.0 (NextGen TV) supports DRM encryption and IP-connected features that conflict with the Just TV philosophy. Our position:
+ATSC 3.0 (NextGen TV) supports DRM encryption and IP-connected features that conflict with the Simply TV philosophy. Our position:
 
-Just TV implements ATSC 3.0 at the RF and demodulator level, receiving and decoding unencrypted broadcast signals and providing full OTA 4K reception where available. We deliberately do not implement the A3SA DRM framework, IP connectivity features, or any ATSC 3.0 interactive layer. The FCC requires broadcasters to simulcast in ATSC 1.0 through at least 2027, so all content remains accessible.
+Simply TV implements ATSC 3.0 at the RF and demodulator level, receiving and decoding unencrypted broadcast signals and providing full OTA 4K reception where available. We deliberately do not implement the A3SA DRM framework, IP connectivity features, or any ATSC 3.0 interactive layer. The FCC requires broadcasters to simulcast in ATSC 1.0 through at least 2027, so all content remains accessible.
 
-This means Just TV cannot receive DRM-encrypted ATSC 3.0 content from broadcasters who have chosen to encrypt their signal. We consider this a feature. A television that requires a license server to display a broadcast signal is not a television — it is a terminal.
+This means Simply TV cannot receive DRM-encrypted ATSC 3.0 content from broadcasters who have chosen to encrypt their signal. We consider this a feature. A television that requires a license server to display a broadcast signal is not a television — it is a terminal.
 
 ---
 
 ## OLED First
 
-Just TV is designed primarily for OLED panels with LED/LCD as a supported fallback. OLED is the right technology for this product: true black, infinite contrast, per-pixel HDR, no backlight to manage, and a simpler hardware output path.
+Simply TV is designed primarily for OLED panels with LED/LCD as a supported fallback. OLED is the right technology for this product: true black, infinite contrast, per-pixel HDR, no backlight to manage, and a simpler hardware output path.
 
-OLED requires active panel care firmware. Unlike smart TVs that implement burn-in protection as an undocumented black box, Just TV's OLED protection algorithms are fully documented and open source. See [OLED-CARE.md](docs/OLED-CARE.md) for the complete technical description of what we do and why.
+OLED requires active panel care firmware. Unlike smart TVs that implement burn-in protection as an undocumented black box, Simply TV's OLED protection algorithms are fully documented and open source. See [OLED-CARE.md](docs/OLED-CARE.md) for the complete technical description of what we do and why.
 
 The four active protection layers are:
 - **Automatic Brightness Limiter (ABL)** — reduces brightness on large bright static areas
@@ -189,7 +189,7 @@ This is a living design document. Sections are added and refined over time.
 
 ## Contributing
 
-Just TV is an open design. Contributions are welcome across all areas — hardware corrections, firmware improvements, documentation clarity, BOM pricing updates, and regional regulatory guidance.
+Simply TV is an open design. Contributions are welcome across all areas — hardware corrections, firmware improvements, documentation clarity, BOM pricing updates, and regional regulatory guidance.
 
 Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) before opening a pull request.
 
